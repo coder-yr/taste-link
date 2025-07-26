@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { 
   ShoppingCart, 
   Bell, 
@@ -22,10 +23,10 @@ export function Header({ userType }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const vendorLinks = [
+    { href: "/", label: "Home", icon: Store },
     { href: "/vendor", label: "Dashboard", icon: Store },
     { href: "/vendor/suppliers", label: "Suppliers", icon: Users },
-    { href: "/vendor/group-buys", label: "Group Buys", icon: ShoppingCart },
-    { href: "/vendor/orders", label: "Orders", icon: ShoppingCart },
+    { href: "/group-buyers", label: "Group Buying", icon: ShoppingCart },
   ];
 
   const supplierLinks = [
@@ -80,6 +81,9 @@ export function Header({ userType }: HeaderProps) {
                 3
               </Badge>
             </Button>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* User Menu */}
             <div className="flex items-center space-x-2">
